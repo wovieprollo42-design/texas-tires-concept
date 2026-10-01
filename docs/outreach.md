@@ -53,3 +53,37 @@ I'd like to launch it for you free, in exchange for a short video testimonial on
 ## Follow-up (3 to 4 days later, same thread)
 
 Hi, just checking you saw the new site concept for Texas Tires: texas-tires-concept.vercel.app. The offer still stands: we build and launch it free, and you record a one-minute video once it's live. Your service links are still pointing to the broken address, so it's worth fixing either way. Want to set a quick call?
+
+---
+
+## Email B: leads with the testimonial exchange
+
+Subject: A free website for Texas Tires, in exchange for a 1-minute video
+
+Hi Texas Tires team,
+
+We'd like to make you a simple offer: we'll build and launch a brand-new website for Texas Tires for free. In exchange, all we ask for is a short video testimonial once it's live.
+
+Why free? We're collecting stories from real local businesses, and a one-minute video from a busy shop like yours means more to us than a fee.
+
+We already built the site so you can see exactly what you'd get:
+https://texas-tires-concept.vercel.app
+
+It has a tire size finder, all 27 of your services, your four financing partners, both shops with live open hours, a Spanish version, and a call button on every phone screen.
+
+How the exchange works:
+1. We finish the site with your real photos and put it live on texastires9.com, at no cost to you.
+2. For 30 days after launch, we fix anything that needs fixing, also free.
+3. Once you're happy with it, you record a 60 to 90 second video on your phone about your experience. Your honest words, no script.
+4. We share the video on our website and social media, and we mention that the site was built free in exchange for it.
+
+All the details are here:
+https://texas-tires-concept.vercel.app/pitch
+
+Want to look at it together? Book 15 minutes here: https://calendly.com/infocalebrated, or just reply to this email.
+
+Best,
+The CALEBrated Virtual Services team
+infocalebrated@gmail.com | calebratedvirtualservices.com
+
+P.S. While building this, we noticed that the 21 service links on your current home page lead to an error page. They point to texastirescustoms.com, which isn't connected to a website right now. It's worth fixing either way.
