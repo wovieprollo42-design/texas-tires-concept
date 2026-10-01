@@ -176,36 +176,6 @@
   /* ---------- hero wheel ---------- */
   var wheel = $('.wheel');
   if (wheel) {
-    var tread = $('[data-tread]', wheel);
-    for (var i = 0; i < 60; i++) {
-      var a = i * 6;
-      el('rect', { x: -9, y: -297, width: 18, height: 20, rx: 2.5, fill: '#1f1f22', transform: 'rotate(' + a + ')' }, tread);
-      el('rect', { x: -5, y: -276, width: 10, height: 12, rx: 2, fill: '#18181a', transform: 'rotate(' + (a + 3) + ')' }, tread);
-    }
-    el('circle', { r: 262, stroke: '#070708', 'stroke-width': 2 }, tread);
-    var holes = $('[data-holes]', wheel);
-    for (var h = 0; h < 36; h++) {
-      var ring = [102, 120, 138][h % 3];
-      var ang = h * 10 * Math.PI / 180;
-      el('circle', { cx: (Math.cos(ang) * ring).toFixed(1), cy: (Math.sin(ang) * ring).toFixed(1), r: 3.8 }, holes);
-    }
-    var spokes = $('[data-spokes]', wheel);
-    for (var s = 0; s < 5; s++) {
-      var g = el('g', { transform: 'rotate(' + (s * 72) + ')' }, spokes);
-      var arm = { fill: '#111113', stroke: 'url(#chrome)', 'stroke-width': 3, 'stroke-linejoin': 'round' };
-      el('path', Object.assign({ d: 'M-5,-50L-19,-50Q-25,-112 -42,-180L-15,-181Q-10,-112 -5,-50Z' }, arm), g);
-      el('path', Object.assign({ d: 'M5,-50L19,-50Q25,-112 42,-180L15,-181Q10,-112 5,-50Z' }, arm), g);
-      el('path', { d: 'M-12,-64Q-17,-118 -29,-168', stroke: '#f9ef06', 'stroke-width': 1.6, 'stroke-linecap': 'round', opacity: .9 }, g);
-      el('path', { d: 'M12,-64Q17,-118 29,-168', stroke: '#f9ef06', 'stroke-width': 1.6, 'stroke-linecap': 'round', opacity: .9 }, g);
-    }
-    var lugs = $('[data-lugs]', wheel);
-    for (var l = 0; l < 6; l++) {
-      var la = (l * 60 + 30) * Math.PI / 180;
-      var cx = (Math.cos(la) * 38).toFixed(1), cy = (Math.sin(la) * 38).toFixed(1);
-      el('circle', { cx: cx, cy: cy, r: 7 }, lugs);
-      el('circle', { cx: cx, cy: cy, r: 3, fill: '#2a2a2c' }, lugs);
-    }
-
     var heroWheel = $('.hero-wheel');
     var intro = reduce ? 1 : 0, introStart = null, ticking = false;
     function ease(t) { return 1 - Math.pow(1 - t, 3); }
@@ -228,20 +198,11 @@
     }
   }
 
-  /* ---------- sidewall arc lugs ---------- */
-  var arcLugs = $('[data-arc-lugs]');
-  if (arcLugs) {
-    for (var k = -27; k <= 27; k += 2.7) {
-      el('rect', { x: 314, y: 64, width: 12, height: 24, rx: 2, transform: 'rotate(' + k.toFixed(2) + ' 320 900)' }, arcLugs);
-    }
-  }
-
   /* ---------- tire size decoder ---------- */
   var SPEED = { L: 75, M: 81, N: 87, P: 93, Q: 99, R: 106, S: 112, T: 118, U: 124, H: 130, V: 149, W: 168, Y: 186 };
   var input = $('#size-input');
-  var arcText = $('[data-arc-text]');
+  var arcSvg = $('.arc');
   var state = $('[data-size-state]');
-  var wheelSize = $('[data-wheel-size]');
   var lastGood = null;
   var specs = $('[data-specs]');
   var meta = null;
@@ -271,8 +232,7 @@
   }
 
   function setPart(part, text) {
-    var t = $('[data-part="' + part + '"]', arcText);
-    if (t) t.textContent = text;
+    $$('[data-part="' + part + '"]', arcSvg).forEach(function (t) { t.textContent = text; });
   }
 
   function decode(silent) {
@@ -318,17 +278,17 @@
     if (p.speed && SPEED[p.speed]) bits.push(L().speed(p.speed, SPEED[p.speed]));
     if (meta) meta.textContent = bits.join(' · ');
 
-    var len = sizeLabel.length;
-    if (arcText) arcText.parentNode.style.fontSize = Math.min(62, Math.floor(560 / (len * 0.8))) + 'px';
-    if (wheelSize) wheelSize.textContent = sizeLabel;
+    var len = arcSvg ? $$('.arc-paint tspan[data-part]', arcSvg).map(function (t) { return t.textContent; }).join('').length : sizeLabel.length;
+    $$('.arc-text', arcSvg).forEach(function (t) { t.style.fontSize = Math.min(62, Math.floor(540 / (len * 0.86))) + 'px'; });
+    $$('[data-wheel-size]').forEach(function (t) { t.textContent = sizeLabel; });
     $$('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c.getAttribute('data-size').toUpperCase() === input.value.trim().toUpperCase())); });
     if (!silent) flash();
   }
 
   var flashTimer;
   function flash() {
-    if (!arcText) return;
-    var parts = $$('tspan[data-part]', arcText);
+    if (!arcSvg) return;
+    var parts = $$('.arc-paint tspan[data-part]', arcSvg);
     parts.forEach(function (t) { t.classList.add('on'); });
     clearTimeout(flashTimer);
     flashTimer = setTimeout(function () { parts.forEach(function (t) { t.classList.remove('on'); }); }, 700);
@@ -341,7 +301,7 @@
       c.addEventListener('click', function () { input.value = c.getAttribute('data-size'); decode(); });
     });
     var highlight = function (part, on) {
-      var targets = part === 'all' ? $$('tspan[data-part]', arcText) : $$('tspan[data-part="' + part + '"]', arcText);
+      var targets = part === 'all' ? $$('.arc-paint tspan[data-part]', arcSvg) : $$('.arc-paint tspan[data-part="' + part + '"]', arcSvg);
       targets.forEach(function (t) { t.classList.toggle('on', on); });
     };
     $$('.spec').forEach(function (sp) {

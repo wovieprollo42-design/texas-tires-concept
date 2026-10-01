@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Chakra+Petch:wght@500;600;700&family=Yellowtail&display=swap">
 <link rel="preload" as="image" href="assets/img/logo-240.webp">
-<link rel="stylesheet" href="assets/css/styles.css?v=20260930e">
+<link rel="stylesheet" href="assets/css/styles.css?v=20261001a">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"AutoRepair","name":"Texas Tires 9","telephone":"+1-817-386-2444","email":"info@texastirescustoms.com","address":{"@type":"PostalAddress","streetAddress":"3140 Denton Hwy","addressLocality":"Haltom City","addressRegion":"TX","postalCode":"76117","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"16:00"}],"sameAs":["https://www.facebook.com/texastires9","https://instagram.com/texastires9","https://www.yelp.com/biz/texas-tires-9-haltom-city"]}
@@ -88,54 +88,17 @@
 
     <div class="hero-wheel" aria-hidden="true">
       <div class="wheel-halo"></div>
-      <svg class="wheel" viewBox="-300 -300 600 600">
-        <defs>
-          <radialGradient id="rubber" r="0.5">
-            <stop offset="0.64" stop-color="#0c0c0d"/>
-            <stop offset="0.78" stop-color="#1b1b1d"/>
-            <stop offset="0.9" stop-color="#131315"/>
-            <stop offset="1" stop-color="#080809"/>
-          </radialGradient>
-          <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#fbfbf8"/>
-            <stop offset=".32" stop-color="#8b8b87"/>
-            <stop offset=".52" stop-color="#ecece7"/>
-            <stop offset=".78" stop-color="#6f6f6b"/>
-            <stop offset="1" stop-color="#d3d3ce"/>
-          </linearGradient>
-          <radialGradient id="rotor" r="0.5">
-            <stop offset="0.45" stop-color="#4a4a48"/>
-            <stop offset="0.7" stop-color="#8e8e8a"/>
-            <stop offset="1" stop-color="#5b5b58"/>
-          </radialGradient>
-          <path id="sw" d="M-150.2,-192.3a244,244 0 1,1 300.4,384.6a244,244 0 1,1 -300.4,-384.6"/>
-        </defs>
-        <g class="spin">
-          <circle r="296" fill="url(#rubber)"/>
-          <circle r="295" stroke="#34343a" stroke-width="2.5"/>
-          <g class="tread" data-tread></g>
-          <text class="sidewall"><textPath href="#sw" textLength="1512" lengthAdjust="spacing"><tspan class="size-on-wheel" data-wheel-size>P275/55R20</tspan><tspan class="dot"> ● </tspan><tspan>TEXAS TIRES</tspan><tspan class="dot"> ● </tspan><tspan>HALTOM CITY TX</tspan><tspan class="dot"> ● </tspan><tspan>LIFETIME FREE ROTATION</tspan><tspan class="dot"> ● </tspan></textPath></text>
-          <circle r="200" fill="#060607"/>
-          <circle r="194" fill="url(#chrome)"/>
-          <circle r="181" fill="#0e0e10"/>
-          <circle r="160" fill="url(#rotor)"/>
-          <g class="holes" data-holes fill="#1d1d1e"></g>
-          <circle r="74" fill="#2b2b2c"/>
-        </g>
-        <g class="caliper">
-          <path d="M-156,-56.8A166,166 0 0 1 -56.8,-156L-38.3,-105.2A112,112 0 0 0 -105.2,-38.3Z" fill="#f9ef06" stroke="#f9ef06" stroke-width="14" stroke-linejoin="round"/>
-          <path d="M-128,-60A138,138 0 0 1 -60,-128" fill="none" stroke="#0b0b0c" stroke-width="3" opacity=".35"/>
-          <circle cx="-120" cy="-84" r="5" fill="#0b0b0c" opacity=".55"/>
-          <circle cx="-84" cy="-120" r="5" fill="#0b0b0c" opacity=".55"/>
-        </g>
-        <g class="spin">
-          <g class="spokes" data-spokes></g>
-          <circle r="54" fill="#0f0f11" stroke="url(#chrome)" stroke-width="4"/>
-          <g data-lugs fill="url(#chrome)"></g>
-          <circle r="24" fill="#070708" stroke="#f9ef06" stroke-width="2.5"/>
-          <text class="cap" y="7" text-anchor="middle">TT</text>
-        </g>
-      </svg>
+      <div class="wheel">
+        <img class="w-layer spin" src="assets/img/wheel/rotor-600.webp" srcset="assets/img/wheel/rotor-600.webp 600w, assets/img/wheel/rotor-1200.webp 1200w" sizes="(min-width: 980px) 640px, 92vw" width="1200" height="1200" alt="" decoding="async">
+        <img class="w-layer" src="assets/img/wheel/caliper-600.webp" srcset="assets/img/wheel/caliper-600.webp 600w, assets/img/wheel/caliper-1200.webp 1200w" sizes="(min-width: 980px) 640px, 92vw" width="1200" height="1200" alt="" decoding="async">
+        <img class="w-layer spin" src="assets/img/wheel/body-600.webp" srcset="assets/img/wheel/body-600.webp 600w, assets/img/wheel/body-1200.webp 1200w" sizes="(min-width: 980px) 640px, 92vw" width="1200" height="1200" alt="" decoding="async" fetchpriority="high">
+        <svg class="w-layer w-text spin" viewBox="-300 -300 600 600">
+          <defs><path id="sw" d="M-145.3,-186a236,236 0 1,1 290.6,372a236,236 0 1,1 -290.6,-372"/></defs>
+          <text class="sidewall sidewall-shadow" transform="translate(.9 1.4)"><textPath href="#sw" textLength="1440" lengthAdjust="spacing"><tspan data-wheel-size>P275/55R20</tspan><tspan> ● </tspan><tspan>TEXAS TIRES</tspan><tspan> ● </tspan><tspan>HALTOM CITY TX</tspan><tspan> ● </tspan><tspan>LIFETIME FREE ROTATION</tspan><tspan> ● </tspan></textPath></text>
+          <text class="sidewall"><textPath href="#sw" textLength="1440" lengthAdjust="spacing"><tspan class="size-on-wheel" data-wheel-size>P275/55R20</tspan><tspan class="dot"> ● </tspan><tspan>TEXAS TIRES</tspan><tspan class="dot"> ● </tspan><tspan>HALTOM CITY TX</tspan><tspan class="dot"> ● </tspan><tspan>LIFETIME FREE ROTATION</tspan><tspan class="dot"> ● </tspan></textPath></text>
+        </svg>
+        <div class="w-light"></div>
+      </div>
       <p class="wheel-note"><span data-i18n="hero.note">Your size, right on the sidewall. Try the finder below.</span><svg class="note-arrow" viewBox="0 0 74 52"><path d="M4 6C28 4 50 14 64 42M64 42l-13-2M64 42l2-13"/></svg></p>
     </div>
   </div>
@@ -182,21 +145,37 @@
 
     <div class="decoder-visual reveal">
       <p class="hand" aria-hidden="true" data-i18n="size.hand">look here on your tire</p>
-      <svg class="arc" viewBox="0 0 640 300" role="img" aria-label="Tire sidewall showing your size">
-        <defs>
-          <linearGradient id="chrome2" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#6f6f6b"/><stop offset=".3" stop-color="#e9e9e4"/><stop offset=".6" stop-color="#8b8b87"/><stop offset="1" stop-color="#f4f4f0"/>
-          </linearGradient>
-          <linearGradient id="rub2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#1f1f22"/><stop offset=".55" stop-color="#151517"/><stop offset="1" stop-color="#0b0b0c"/>
-          </linearGradient>
-          <path id="arcpath" d="M0,214A780,780 0 0 1 640,214"/>
-        </defs>
-        <path d="M0,134A830,830 0 0 1 640,134L640,289A690,690 0 0 0 0,289Z" fill="url(#rub2)"/>
-        <g data-arc-lugs fill="#0b0b0c"></g>
-        <path d="M0,289A690,690 0 0 1 640,289L640,300L0,300Z" fill="url(#chrome2)"/>
-        <text class="arc-text" text-anchor="middle"><textPath href="#arcpath" startOffset="50%" data-arc-text><tspan data-part="type">P</tspan><tspan data-part="width">275</tspan><tspan data-part="slash">/</tspan><tspan data-part="ratio">55</tspan><tspan data-part="cons">R</tspan><tspan data-part="rim">20</tspan></textPath></text>
-      </svg>
+      <div class="arc-wrap">
+        <img class="arc-bg" src="assets/img/wheel/arc-640.webp" srcset="assets/img/wheel/arc-640.webp 640w, assets/img/wheel/arc-1280.webp 1280w" sizes="(min-width: 980px) 600px, 90vw" width="1280" height="700" alt="" loading="lazy" decoding="async">
+        <svg class="arc" viewBox="0 0 640 350" role="img" aria-label="Tire sidewall showing your size">
+          <defs>
+            <path id="arcpath" d="M-22.7,255.4A730,730 0 0 1 662.7,255.4"/>
+            <filter id="rwlEdge" x="-5%" y="-30%" width="110%" height="160%">
+              <feOffset in="SourceAlpha" dx="1.6" dy="2.6" result="o"/><feGaussianBlur in="o" stdDeviation="2.2" result="ob"/>
+              <feFlood flood-color="#000" flood-opacity=".85"/><feComposite in2="ob" operator="in" result="sh"/>
+              <feGaussianBlur in="SourceAlpha" stdDeviation="1.3" result="b"/>
+              <feDiffuseLighting in="b" surfaceScale="3" diffuseConstant="1" lighting-color="#2c2c30" result="d"><feDistantLight azimuth="235" elevation="50"/></feDiffuseLighting>
+              <feComposite in="d" in2="SourceAlpha" operator="in" result="body"/>
+              <feSpecularLighting in="b" surfaceScale="3" specularConstant=".6" specularExponent="16" lighting-color="#fff" result="s"><feDistantLight azimuth="235" elevation="38"/></feSpecularLighting>
+              <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+              <feMerge><feMergeNode in="sh"/><feMergeNode in="body"/><feMergeNode in="s2"/></feMerge>
+            </filter>
+            <filter id="rwlPaint" x="-5%" y="-30%" width="110%" height="160%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="b"/>
+              <feDiffuseLighting in="b" surfaceScale="2" diffuseConstant="1.08" lighting-color="#fff" result="d"><feDistantLight azimuth="235" elevation="60"/></feDiffuseLighting>
+              <feComposite in="SourceGraphic" in2="d" operator="arithmetic" k1="1" result="lit"/>
+              <feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="2" seed="4" result="n"/>
+              <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .55 0 0 0 -.24" result="grime"/>
+              <feComposite in="grime" in2="SourceAlpha" operator="in" result="g2"/>
+              <feSpecularLighting in="b" surfaceScale="2" specularConstant=".45" specularExponent="20" lighting-color="#fff" result="s"><feDistantLight azimuth="235" elevation="40"/></feSpecularLighting>
+              <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+              <feMerge><feMergeNode in="lit"/><feMergeNode in="g2"/><feMergeNode in="s2"/></feMerge>
+            </filter>
+          </defs>
+          <text class="arc-text arc-emboss" text-anchor="middle" filter="url(#rwlEdge)"><textPath href="#arcpath" startOffset="50%"><tspan data-part="type">P</tspan><tspan data-part="width">275</tspan><tspan data-part="slash">/</tspan><tspan data-part="ratio">55</tspan><tspan data-part="cons">R</tspan><tspan data-part="rim">20</tspan></textPath></text>
+          <text class="arc-text arc-paint" text-anchor="middle" filter="url(#rwlPaint)"><textPath href="#arcpath" startOffset="50%" data-arc-text><tspan data-part="type">P</tspan><tspan data-part="width">275</tspan><tspan data-part="slash">/</tspan><tspan data-part="ratio">55</tspan><tspan data-part="cons">R</tspan><tspan data-part="rim">20</tspan></textPath></text>
+        </svg>
+      </div>
       <dl class="specs" data-specs>
         <div class="spec" tabindex="0" data-for="width"><dt data-i18n="spec.width">Tread width</dt><dd><b data-out="width">275 mm</b><span data-out="width2">10.8 in across the tread</span></dd></div>
         <div class="spec" tabindex="0" data-for="ratio"><dt data-i18n="spec.ratio">Sidewall</dt><dd><b data-out="ratio">55%</b><span data-out="ratio2">151 mm tall, 55% of the width</span></dd></div>
@@ -529,6 +508,6 @@
 </nav>
 
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
-<script src="assets/js/main.js?v=20260930e" defer></script>
+<script src="assets/js/main.js?v=20261001a" defer></script>
 </body>
 </html>

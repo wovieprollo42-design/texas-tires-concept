@@ -1,0 +1,392 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+<style>
+body{margin:0;background:transparent}
+svg{display:block;margin:0 0 20px}
+svg circle:not([fill]){fill:none}
+.small{font-family:Archivo;font-weight:800;font-stretch:125%}
+</style></head>
+<body>
+<!-- ========== WHEEL BODY (tire + rim lip + spokes + hub), rotating layer ========== -->
+<svg id="body" width="1200" height="1200" viewBox="-300 -300 600 600">
+  <defs>
+    <radialGradient id="rubber" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="300">
+      <stop offset=".665" stop-color="#050506"/>
+      <stop offset=".68" stop-color="#101012"/>
+      <stop offset=".7" stop-color="#1d1d20"/>
+      <stop offset=".72" stop-color="#0d0d0f"/>
+      <stop offset=".738" stop-color="#1a1a1d"/>
+      <stop offset=".79" stop-color="#2c2c31"/>
+      <stop offset=".845" stop-color="#212125"/>
+      <stop offset=".882" stop-color="#141417"/>
+      <stop offset=".9" stop-color="#1c1c20"/>
+      <stop offset=".936" stop-color="#0e0e10"/>
+    </radialGradient>
+    <radialGradient id="lug" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="300">
+      <stop offset=".93" stop-color="#121214"/>
+      <stop offset=".975" stop-color="#2a2a2f"/>
+      <stop offset=".993" stop-color="#1c1c20"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </radialGradient>
+    <radialGradient id="lip" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="300">
+      <stop offset=".596" stop-color="#1b1c1e"/>
+      <stop offset=".606" stop-color="#55575a"/>
+      <stop offset=".622" stop-color="#d9dad7"/>
+      <stop offset=".636" stop-color="#8e908f"/>
+      <stop offset=".648" stop-color="#f1f1ed"/>
+      <stop offset=".658" stop-color="#9c9e9d"/>
+      <stop offset=".664" stop-color="#2b2c2e"/>
+    </radialGradient>
+    <radialGradient id="barrel" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="300">
+      <stop offset=".553" stop-color="#050506" stop-opacity=".2"/>
+      <stop offset=".562" stop-color="#0b0b0d" stop-opacity=".95"/>
+      <stop offset=".585" stop-color="#26272a"/>
+      <stop offset=".598" stop-color="#3a3b3f"/>
+    </radialGradient>
+    <linearGradient id="machined" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8f9190"/>
+      <stop offset=".3" stop-color="#f1f1ed"/>
+      <stop offset=".55" stop-color="#b3b5b3"/>
+      <stop offset=".8" stop-color="#e8e8e4"/>
+      <stop offset="1" stop-color="#7c7e7d"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#050506"/>
+      <stop offset=".45" stop-color="#1d1e21"/>
+      <stop offset=".55" stop-color="#2c2d31"/>
+      <stop offset="1" stop-color="#060607"/>
+    </linearGradient>
+    <radialGradient id="hub" cx=".4" cy=".35" r=".7">
+      <stop offset="0" stop-color="#2d2e32"/>
+      <stop offset=".6" stop-color="#101012"/>
+      <stop offset="1" stop-color="#050506"/>
+    </radialGradient>
+    <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".35" stop-color="#9a9c9b"/>
+      <stop offset=".55" stop-color="#e9e9e5"/>
+      <stop offset="1" stop-color="#5c5e5f"/>
+    </linearGradient>
+    <clipPath id="tireClip"><path id="tireClipPath" clip-rule="evenodd"/></clipPath>
+    <filter id="grain" x="-300" y="-300" width="600" height="600" filterUnits="userSpaceOnUse">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  .2 0 0 0 -.07"/>
+    </filter>
+    <filter id="grainDark" x="-300" y="-300" width="600" height="600" filterUnits="userSpaceOnUse">
+      <feTurbulence type="fractalNoise" baseFrequency=".35" numOctaves="2" seed="3" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .45 0 0 0 -.17"/>
+    </filter>
+    <filter id="lugLight" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.1" result="b"/>
+      <feSpecularLighting in="b" surfaceScale="2.5" specularConstant=".3" specularExponent="18" lighting-color="#fff" result="s"><feDistantLight azimuth="225" elevation="45"/></feSpecularLighting>
+      <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+      <feComposite in="SourceGraphic" in2="s2" operator="arithmetic" k2="1" k3=".22"/>
+    </filter>
+    <filter id="ao" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="b"/>
+      <feFlood flood-color="#000" flood-opacity=".75"/>
+      <feComposite in2="b" operator="in" result="sh"/>
+      <feMerge><feMergeNode in="sh"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="bevel" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.4" result="b"/>
+      <feSpecularLighting in="b" surfaceScale="3" specularConstant=".45" specularExponent="22" lighting-color="#fff" result="s"><feDistantLight azimuth="225" elevation="42"/></feSpecularLighting>
+      <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+      <feComposite in="SourceGraphic" in2="s2" operator="arithmetic" k2="1" k3=".45"/>
+    </filter>
+  </defs>
+  <path id="lugBase" fill="#060607" fill-rule="evenodd"/>
+  <g id="lugs" fill="url(#lug)" filter="url(#lugLight)"></g>
+  <path id="rubberRing" fill="url(#rubber)" fill-rule="evenodd"/>
+  <g id="armor" fill="#19191c" filter="url(#lugLight)"></g>
+  <g clip-path="url(#tireClip)">
+    <rect x="-300" y="-300" width="600" height="600" fill="#000" filter="url(#grainDark)"/>
+    <rect x="-300" y="-300" width="600" height="600" fill="#000" filter="url(#grain)" opacity=".5"/>
+  </g>
+  <circle r="263.5" stroke="#050506" stroke-width="1.6"/>
+  <circle r="265.3" stroke="#ffffff" stroke-opacity=".05" stroke-width="1"/>
+  <circle r="217.5" stroke="#050506" stroke-width="1.6"/>
+  <circle r="219.5" stroke="#ffffff" stroke-opacity=".06" stroke-width="1"/>
+  <circle r="200.2" stroke="#020203" stroke-width="2.2"/>
+  <path id="lipRing" fill="url(#lip)" fill-rule="evenodd"/>
+  <circle r="179.5" stroke="#f9ef06" stroke-width="1.4" stroke-opacity=".9"/>
+  <path id="barrelRing" fill="url(#barrel)" fill-rule="evenodd"/>
+  <g id="spokes" filter="url(#ao)"></g>
+  <g filter="url(#ao)">
+    <circle r="61" fill="url(#hub)"/>
+    <circle r="56.5" stroke="url(#chrome)" stroke-width="2.2"/>
+    <g id="lugnuts"></g>
+    <circle r="27" fill="#08080a" stroke="url(#chrome)" stroke-width="2"/>
+    <image href="tt-mark.png" x="-18" y="-10.6" width="36" height="21.1"/>
+  </g>
+</svg>
+
+<!-- ========== ROTOR ========== -->
+<svg id="rotor" width="1200" height="1200" viewBox="-300 -300 600 600">
+  <defs>
+    <radialGradient id="disc" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="170">
+      <stop offset=".5" stop-color="#5f6064"/>
+      <stop offset=".6" stop-color="#8d8f92"/>
+      <stop offset=".8" stop-color="#a7a9ab"/>
+      <stop offset=".93" stop-color="#7f8184"/>
+      <stop offset=".96" stop-color="#55575a"/>
+      <stop offset="1" stop-color="#3a3b3e"/>
+    </radialGradient>
+    <radialGradient id="hat" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#5a5b5f"/>
+      <stop offset="1" stop-color="#232427"/>
+    </radialGradient>
+    <radialGradient id="hole" cx=".45" cy=".4" r=".6">
+      <stop offset="0" stop-color="#050505"/>
+      <stop offset=".7" stop-color="#151515"/>
+      <stop offset="1" stop-color="#3b3c3e"/>
+    </radialGradient>
+    <clipPath id="discClip"><circle r="162"/></clipPath>
+  </defs>
+  <circle r="164" fill="#2c2d30"/>
+  <circle r="162" fill="url(#disc)"/>
+  <g id="rings" clip-path="url(#discClip)"></g>
+  <g id="slots"></g>
+  <g id="holes"></g>
+  <circle r="88" fill="#2a2b2e"/>
+  <circle r="85" fill="url(#hat)"/>
+  <circle r="72" stroke="#1b1c1e" stroke-width="2"/>
+  <g id="studs"></g>
+</svg>
+
+<!-- ========== CALIPER ========== -->
+<svg id="caliper" width="1200" height="1200" viewBox="-300 -300 600 600">
+  <defs>
+    <linearGradient id="yel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff9a8"/>
+      <stop offset=".25" stop-color="#fbef1a"/>
+      <stop offset=".7" stop-color="#e2d500"/>
+      <stop offset="1" stop-color="#9e9500"/>
+    </linearGradient>
+    <filter id="calShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/>
+      <feOffset in="b" dx="4" dy="7" result="o"/>
+      <feFlood flood-color="#000" flood-opacity=".6"/>
+      <feComposite in2="o" operator="in" result="sh"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="b2"/>
+      <feSpecularLighting in="b2" surfaceScale="5" specularConstant=".7" specularExponent="20" lighting-color="#fff" result="s"><feDistantLight azimuth="225" elevation="40"/></feSpecularLighting>
+      <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+      <feComposite in="SourceGraphic" in2="s2" operator="arithmetic" k2="1" k3=".55" result="lit"/>
+      <feMerge><feMergeNode in="sh"/><feMergeNode in="lit"/></feMerge>
+    </filter>
+    <path id="calText"/>
+  </defs>
+  <g filter="url(#calShadow)">
+    <path id="calBody" fill="url(#yel)" stroke="url(#yel)" stroke-width="16" stroke-linejoin="round"/>
+  </g>
+  <path id="calGroove" fill="none" stroke="#6f6800" stroke-width="2" stroke-opacity=".55"/>
+  <text class="small" font-size="10.5" letter-spacing="1.2" fill="#161606"><textPath href="#calText" startOffset="50%" text-anchor="middle">TEXAS TIRES</textPath></text>
+  <g id="calBolts"></g>
+</svg>
+
+<!-- ========== ARC BACKGROUND (size finder) ========== -->
+<svg id="arcbg" width="1280" height="700" viewBox="0 0 640 350">
+  <defs>
+    <radialGradient id="sw" gradientUnits="userSpaceOnUse" cx="320" cy="900" r="850">
+      <stop offset=".812" stop-color="#0d0d0f"/>
+      <stop offset=".826" stop-color="#1b1b1e"/>
+      <stop offset=".834" stop-color="#0b0b0c"/>
+      <stop offset=".845" stop-color="#18181b"/>
+      <stop offset=".885" stop-color="#2e2e33"/>
+      <stop offset=".925" stop-color="#202024"/>
+      <stop offset=".942" stop-color="#0f0f11"/>
+      <stop offset=".95" stop-color="#18181b"/>
+    </radialGradient>
+    <radialGradient id="alug" gradientUnits="userSpaceOnUse" cx="320" cy="900" r="850">
+      <stop offset=".945" stop-color="#121214"/>
+      <stop offset=".98" stop-color="#2b2b30"/>
+      <stop offset=".994" stop-color="#1e1e22"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </radialGradient>
+    <radialGradient id="flange" gradientUnits="userSpaceOnUse" cx="320" cy="900" r="850">
+      <stop offset=".776" stop-color="#1c1d1f"/>
+      <stop offset=".783" stop-color="#606265"/>
+      <stop offset=".792" stop-color="#e2e3e0"/>
+      <stop offset=".8" stop-color="#8f9190"/>
+      <stop offset=".806" stop-color="#f4f4f0"/>
+      <stop offset=".811" stop-color="#9c9e9d"/>
+      <stop offset=".814" stop-color="#2a2b2d"/>
+    </radialGradient>
+    <linearGradient id="spokeFace" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8d8f8e"/>
+      <stop offset=".3" stop-color="#f1f1ed"/>
+      <stop offset=".55" stop-color="#b9bbb9"/>
+      <stop offset=".8" stop-color="#ececE8"/>
+      <stop offset="1" stop-color="#7f8180"/>
+    </linearGradient>
+    <linearGradient id="yel2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff9a8"/><stop offset=".35" stop-color="#f6ea10"/><stop offset="1" stop-color="#a39900"/>
+    </linearGradient>
+    <radialGradient id="rotor2" gradientUnits="userSpaceOnUse" cx="320" cy="900" r="850">
+      <stop offset=".6" stop-color="#6d6f72"/>
+      <stop offset=".67" stop-color="#a3a5a7"/>
+      <stop offset=".705" stop-color="#7a7c7f"/>
+      <stop offset=".715" stop-color="#3a3b3e"/>
+    </radialGradient>
+    <radialGradient id="abarrel" gradientUnits="userSpaceOnUse" cx="320" cy="900" r="850">
+      <stop offset=".72" stop-color="#050506" stop-opacity="0"/>
+      <stop offset=".735" stop-color="#0b0b0d" stop-opacity=".9"/>
+      <stop offset=".765" stop-color="#26272a"/>
+      <stop offset=".777" stop-color="#3a3b3f"/>
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".09"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".35"/>
+    </linearGradient>
+    <clipPath id="swClip"><path id="swClipPath" clip-rule="evenodd"/></clipPath>
+    <filter id="agrain" x="0" y="0" width="640" height="350" filterUnits="userSpaceOnUse">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="5" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  .2 0 0 0 -.07"/>
+    </filter>
+    <filter id="agrainDark" x="0" y="0" width="640" height="350" filterUnits="userSpaceOnUse">
+      <feTurbulence type="fractalNoise" baseFrequency=".3" numOctaves="2" seed="9" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .45 0 0 0 -.17"/>
+    </filter>
+    <filter id="alugLight" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.3" result="b"/>
+      <feSpecularLighting in="b" surfaceScale="3" specularConstant=".4" specularExponent="18" lighting-color="#fff" result="s"><feDistantLight azimuth="235" elevation="42"/></feSpecularLighting>
+      <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+      <feComposite in="SourceGraphic" in2="s2" operator="arithmetic" k2="1" k3=".3"/>
+    </filter>
+    <filter id="embossSmall" x="-5%" y="-40%" width="110%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation=".7" result="b"/>
+      <feSpecularLighting in="b" surfaceScale="2.2" specularConstant=".8" specularExponent="14" lighting-color="#fff" result="s"><feDistantLight azimuth="235" elevation="40"/></feSpecularLighting>
+      <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+      <feOffset in="SourceAlpha" dx=".8" dy="1.3" result="o"/><feGaussianBlur in="o" stdDeviation=".8" result="ob"/>
+      <feFlood flood-color="#000" flood-opacity=".9"/><feComposite in2="ob" operator="in" result="sh"/>
+      <feMerge><feMergeNode in="sh"/><feMergeNode in="SourceGraphic"/><feMergeNode in="s2"/></feMerge>
+    </filter>
+    <filter id="aao" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="7" result="b"/>
+      <feFlood flood-color="#000" flood-opacity=".8"/><feComposite in2="b" operator="in" result="sh"/>
+      <feMerge><feMergeNode in="sh"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="aBevel" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="b"/>
+      <feSpecularLighting in="b" surfaceScale="4" specularConstant=".5" specularExponent="24" lighting-color="#fff" result="s"><feDistantLight azimuth="235" elevation="40"/></feSpecularLighting>
+      <feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/>
+      <feDiffuseLighting in="b" surfaceScale="4" diffuseConstant="1" lighting-color="#fff" result="d"><feDistantLight azimuth="235" elevation="55"/></feDiffuseLighting>
+      <feComposite in="SourceGraphic" in2="d" operator="arithmetic" k1="1" result="lit"/>
+      <feComposite in="lit" in2="s2" operator="arithmetic" k2="1" k3=".5" result="o"/>
+      <feComposite in="o" in2="SourceAlpha" operator="in"/>
+    </filter>
+    <path id="smallArc" d="M-14.3,271.3A712,712 0 0 1 654.3,271.3"/>
+  </defs>
+  <circle cx="320" cy="900" r="676" fill="#060607"/>
+  <circle cx="320" cy="900" r="612" fill="url(#rotor2)"/>
+  <g id="aholes"></g>
+  <path id="acal" fill="url(#yel2)" stroke="url(#yel2)" stroke-width="12" stroke-linejoin="round"/>
+  <path id="abarrelRing" fill="url(#abarrel)" fill-rule="evenodd"/>
+  <g id="aspoke" filter="url(#aao)"></g>
+  <path id="aflange" fill="url(#flange)" fill-rule="evenodd"/>
+  <circle cx="320" cy="900" r="693" stroke="#020203" stroke-width="3"/>
+  <path id="alugBase" fill="#060607" fill-rule="evenodd"/>
+  <g id="alugs" fill="url(#alug)" filter="url(#alugLight)"></g>
+  <path id="aside" fill="url(#sw)" fill-rule="evenodd"/>
+  <g clip-path="url(#swClip)">
+    <path filter="url(#agrainDark)" d="M0 0H640V350H0Z" fill="#000"/>
+    <path filter="url(#agrain)" d="M0 0H640V350H0Z" fill="#000" opacity=".5"/>
+  </g>
+  <circle cx="320" cy="900" r="796" stroke="#050506" stroke-width="1.8"/>
+  <circle cx="320" cy="900" r="798.5" stroke="#fff" stroke-opacity=".06" stroke-width="1.2"/>
+  <circle cx="320" cy="900" r="704" stroke="#050506" stroke-width="1.8"/>
+  <circle cx="320" cy="900" r="706.5" stroke="#fff" stroke-opacity=".06" stroke-width="1.2"/>
+  <text class="small" font-size="12.5" letter-spacing="4" fill="#1b1b1e" filter="url(#embossSmall)"><textPath href="#smallArc" startOffset="7%">TUBELESS</textPath></text>
+  <text class="small" font-size="12.5" letter-spacing="4" fill="#1b1b1e" filter="url(#embossSmall)"><textPath href="#smallArc" startOffset="93%" text-anchor="end">RADIAL  M+S</textPath></text>
+  <path id="asheen" fill="url(#sheen)" fill-rule="evenodd"/>
+</svg>
+
+<script>
+const NS='http://www.w3.org/2000/svg';
+function el(t,a,p){const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);if(p)p.appendChild(n);return n}
+const $=id=>document.getElementById(id);
+const rad=d=>d*Math.PI/180;
+const P=(r,a,cx=0,cy=0)=>[(cx+r*Math.cos(rad(a))).toFixed(2),(cy+r*Math.sin(rad(a))).toFixed(2)].join(',');
+const ring=(cx,cy,r1,r2)=>`M${cx},${cy-r1}a${r1},${r1} 0 1,1 0,${2*r1}a${r1},${r1} 0 1,1 0,${-2*r1}ZM${cx},${cy-r2}a${r2},${r2} 0 1,0 0,${2*r2}a${r2},${r2} 0 1,0 0,${-2*r2}Z`;
+const poly=pts=>'M'+pts.join('L')+'Z';
+
+$('lugBase').setAttribute('d',ring(0,0,290.5,279));
+$('rubberRing').setAttribute('d',ring(0,0,281.5,199.5));
+$('tireClipPath').setAttribute('d',ring(0,0,290.5,201));
+$('lipRing').setAttribute('d',ring(0,0,199.2,179));
+$('barrelRing').setAttribute('d',ring(0,0,179,165));
+const lugs=$('lugs');
+for(let i=0;i<44;i++){
+  const a=i*(360/44);
+  el('path',{d:poly([P(280,a-2.4),P(298.5,a-1.9),P(298.5,a+2.9),P(280,a+2.2)])},lugs);
+  el('path',{d:poly([P(287,a+4.0),P(298.5,a+4.3),P(298.5,a+6.4),P(287,a+6.0)])},lugs);
+  el('path',{d:'M'+P(284,a)+'L'+P(295,a+.5),stroke:'#060607','stroke-width':1,fill:'none'},lugs);
+}
+const armor=$('armor');
+for(let i=0;i<22;i++){const a=i*(360/22)+3;el('path',{d:poly([P(268,a-3.2),P(281,a-3.6),P(281,a+3.6),P(270.5,a+2.8)])},armor)}
+const spokes=$('spokes');
+for(let k=0;k<5;k++){
+  const g=el('g',{transform:`rotate(${k*72})`},spokes);
+  for(const s of [-1,1]){
+    const m=x=>x*s;
+    el('path',{d:`M${m(4)},-57 L${m(22)},-55 C${m(32)},-95 ${m(50)},-135 ${m(72)},-167 L${m(31)},-172 C${m(23)},-133 ${m(12)},-96 ${m(4)},-57Z`,fill:'url(#gloss)'},g);
+    el('path',{d:`M${m(8.5)},-63 L${m(18)},-62 C${m(27)},-99 ${m(43)},-134 ${m(61)},-163 L${m(39)},-166 C${m(29)},-131 ${m(17)},-98 ${m(8.5)},-63Z`,fill:'url(#machined)',filter:'url(#bevel)'},g);
+    el('path',{d:`M${m(22)},-55 C${m(32)},-95 ${m(50)},-135 ${m(72)},-167`,stroke:'#000','stroke-opacity':.6,'stroke-width':1.2,fill:'none'},g);
+  }
+  el('path',{d:'M-22,-54 Q0,-66 22,-54 L18,-48 Q0,-58 -18,-48Z',fill:'url(#gloss)'},g);
+}
+const nuts=$('lugnuts');
+for(let i=0;i<6;i++){
+  const a=i*60+30,xy=P(40,a).split(',').map(Number);
+  const hex=[...Array(6)].map((_,j)=>P(8.8,j*60+a,xy[0],xy[1])).join(' ');
+  el('polygon',{points:hex,fill:'url(#chrome)',stroke:'#1a1a1a','stroke-width':.8},nuts);
+  el('circle',{cx:xy[0],cy:xy[1],r:4.4,fill:'#2a2b2d',stroke:'#c9cac7','stroke-width':.8},nuts);
+}
+const rings=$('rings');
+for(let r=90,i=0;r<=162;r+=1.35,i++){el('circle',{r:r.toFixed(2),stroke:i%2?'#ffffff':'#000000','stroke-opacity':i%2?.06:.09,'stroke-width':.7},rings)}
+const holes=$('holes');
+for(let i=0;i<48;i++){
+  const row=i%3,a=i*7.5+row*2.2,r=[108,127,146][row];const xy=P(r,a).split(',');
+  el('circle',{cx:xy[0],cy:xy[1],r:3.9,fill:'url(#hole)'},holes);
+  el('circle',{cx:xy[0],cy:xy[1],r:3.9,stroke:'#d8d9d6','stroke-opacity':.35,'stroke-width':.7},holes);
+}
+const slots=$('slots');
+for(let i=0;i<6;i++){const a=i*60+14;el('path',{d:`M${P(100,a)}Q${P(128,a+4)} ${P(152,a+14)}`,stroke:'#2a2b2d','stroke-width':3.4,'stroke-linecap':'round',fill:'none'},slots)}
+const studs=$('studs');
+for(let i=0;i<6;i++){const xy=P(40,i*60+30).split(',');el('circle',{cx:xy[0],cy:xy[1],r:6,fill:'#151618'},studs)}
+el('circle',{r:26,fill:'#0d0d0e'},studs);
+(function(){const a1=-162,a2=-108,ro=166,ri=116;
+  $('calBody').setAttribute('d',`M${P(ro,a1)}A${ro},${ro} 0 0 1 ${P(ro,a2)}L${P(ri,a2)}A${ri},${ri} 0 0 0 ${P(ri,a1)}Z`);
+  $('calGroove').setAttribute('d',`M${P(141,a1+4)}A141,141 0 0 1 ${P(141,a2-4)}`);
+  $('calText').setAttribute('d',`M${P(152,-152)}A152,152 0 0 1 ${P(152,-118)}`);
+  const b=$('calBolts');
+  for(const a of [a1+3,a2-3]){const xy=P(129,a).split(',').map(Number);const hex=[...Array(6)].map((_,j)=>P(6.5,j*60,xy[0],xy[1])).join(' ');el('polygon',{points:hex,fill:'#3a3a3c',stroke:'#111','stroke-width':.8},b);el('circle',{cx:xy[0],cy:xy[1],r:2.4,fill:'#111'},b)}
+})();
+(function(){
+  const cx=320,cy=900;
+  $('aside').setAttribute('d',ring(cx,cy,806,693));
+  $('swClipPath').setAttribute('d',ring(cx,cy,806,693));
+  $('asheen').setAttribute('d',ring(cx,cy,846,660));
+  $('aflange').setAttribute('d',ring(cx,cy,693,660));
+  $('abarrelRing').setAttribute('d',ring(cx,cy,660,612));
+  $('alugBase').setAttribute('d',ring(cx,cy,827,803));
+  const L=$('alugs');
+  for(let a=-122;a<=-58;a+=3.1){
+    el('path',{d:poly([P(803,a-.75,cx,cy),P(846,a-.35,cx,cy),P(846,a+1.15,cx,cy),P(803,a+.8,cx,cy)])},L);
+    el('path',{d:poly([P(824,a+1.45,cx,cy),P(846,a+1.6,cx,cy),P(846,a+2.5,cx,cy),P(824,a+2.3,cx,cy)])},L);
+    el('path',{d:'M'+P(815,a+.1,cx,cy)+'L'+P(838,a+.45,cx,cy),stroke:'#070708','stroke-width':1.3,fill:'none'},L);
+  }
+  const H=$('aholes');
+  for(let a=-124;a<=-56;a+=2.4){for(const [r,off] of [[560,0],[585,1.2]]){const xy=P(r,a+off,cx,cy).split(',');el('circle',{cx:xy[0],cy:xy[1],r:4.6,fill:'#101011',stroke:'#cfd0cd','stroke-opacity':.3,'stroke-width':.8},H)}}
+  $('acal').setAttribute('d',`M${P(655,-78,cx,cy)}A655,655 0 0 1 ${P(655,-66,cx,cy)}L${P(560,-66,cx,cy)}A560,560 0 0 0 ${P(560,-78,cx,cy)}Z`);
+  const S=$('aspoke');
+  for(const s of [-1,1]){
+    const q=(r,d)=>P(r,-90+s*d,cx,cy);
+    el('path',{d:poly([q(520,1),q(520,6.5),q(662,12.5),q(662,4.2)]),fill:'#0c0c0e'},S);
+    el('path',{d:poly([q(520,2),q(520,5.4),q(660,10.8),q(660,5.4)]),fill:'url(#spokeFace)',filter:'url(#aBevel)'},S);
+  }
+})();
+</script>
+</body></html>
