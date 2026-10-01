@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Website for Texas Tires | CALEBrated</title>
+<meta name="description" content="What changed between the current Texas Tires website and the new concept, and our offer: a free build in exchange for a short video testimonial.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="A new website for Texas Tires">
+<meta property="og:description" content="Before and after, what we fixed, and a free build in exchange for a video testimonial. Prepared by CALEBrated Virtual Services.">
+<meta property="og:image" content="/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icon-192.png?v=2">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Chakra+Petch:wght@500;600;700&family=Yellowtail&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260930e">
+<style>
+  .p-top{border-bottom:1px solid var(--line)}
+  .p-top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:68px}
+  .p-from{font-family:var(--tech);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+  .p-from b{color:var(--chalk)}
+  .p-hero{padding:clamp(56px,8vw,110px) 0 clamp(40px,5vw,64px)}
+  .p-hero .display{max-width:15ch;margin:10px 0 22px}
+  .p-hero .lede{max-width:56ch}
+  .p-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;font-family:var(--tech);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .p-meta span b{color:var(--hivis)}
+  .ba{padding:clamp(40px,6vw,80px) 0;background:var(--asphalt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .ba-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,40px);align-items:start}
+  .ba-card{margin:0}
+  .ba-card .tag{display:inline-block;font-family:var(--tech);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:5px;margin-bottom:14px}
+  .ba-card.before .tag{background:var(--steel-2);color:var(--mute)}
+  .ba-card.after .tag{background:var(--hivis);color:var(--ink)}
+  .ba-shots{display:grid;grid-template-columns:minmax(0,2.3fr) minmax(0,1fr);gap:12px;align-items:end}
+  .ba-shots img{border-radius:12px;border:1px solid var(--line-2);width:100%}
+  .ba-card figcaption{margin-top:14px;color:var(--mute);font-size:15px;max-width:52ch}
+  .fixes{padding:clamp(64px,8vw,110px) 0}
+  .fix-list{counter-reset:fix;border-top:1px solid var(--line)}
+  .fix{counter-increment:fix;display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,3vw,40px);padding:26px 0;border-bottom:1px solid var(--line)}
+  .fix::before{content:counter(fix,decimal-leading-zero);font-family:var(--display);font-weight:900;font-stretch:125%;font-size:28px;color:var(--hivis);line-height:1}
+  .fix h3{font-family:var(--display);font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:clamp(18px,1.7vw,22px);line-height:1.1;margin-bottom:8px}
+  .fix p{color:var(--mute);font-size:15.5px}
+  .fix .now{border-left:3px solid var(--hivis);padding-left:18px}
+  .fix .now b{display:block;font-family:var(--tech);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--hivis);margin-bottom:6px}
+  .fix .now p{color:#dcdad2}
+  .fix .was b{display:block;font-family:var(--tech);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+  .speed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px}
+  .speed div{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--asphalt)}
+  .speed .k{font-family:var(--tech);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+  .speed .v{display:flex;align-items:baseline;gap:12px;margin-top:10px;flex-wrap:wrap}
+  .speed .old{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:22px;color:var(--mute);text-decoration:line-through;text-decoration-color:#ff6b4a;text-decoration-thickness:2px}
+  .speed .new{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:34px;color:var(--hivis)}
+  .speed .note{font-size:13px;color:var(--mute);margin-top:8px}
+  .offer{background:var(--hivis);color:var(--ink);padding:clamp(64px,8vw,110px) 0}
+  .offer-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+  .offer .h2{color:var(--ink)}
+  .offer .body-lg{color:#2a2a18;margin-top:16px}
+  .inc{background:var(--ink);color:var(--chalk);border-radius:20px;padding:clamp(22px,3vw,34px)}
+  .inc h3{font-family:var(--tech);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
+  .inc ul{margin-bottom:22px}
+  .inc li{position:relative;padding:10px 0 10px 30px;border-bottom:1px solid var(--line);font-size:15.5px}
+  .inc li::before{content:"";position:absolute;left:0;top:14px;width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12.5l5 5L20 6' fill='none' stroke='%23f9ef06' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+  .inc .addon li::before{background:none;border:2px solid var(--hivis);border-radius:50%;width:12px;height:12px;top:16px;left:2px}
+  .inc li span{display:block;color:var(--mute);font-size:14px;margin-top:2px}
+  .inc .ask{counter-reset:ask;margin-bottom:22px}
+  .inc .ask li{counter-increment:ask}
+  .inc .ask li::before{content:counter(ask);background:var(--hivis);color:var(--ink);width:20px;height:20px;border-radius:5px;top:11px;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:12px}
+  .offer .body-lg+.body-lg{margin-top:12px}
+  .offer-flag{margin-top:26px;max-width:62ch;border:2px solid var(--hivis);border-radius:14px;padding:16px 18px;font-size:clamp(16px,1.4vw,18px);color:var(--chalk);background:rgba(249,239,6,.06)}
+  .offer-flag b{color:var(--hivis)}
+  .offer-tag{display:inline-block;margin-right:8px;font-family:var(--tech);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--hivis);color:var(--ink);padding:3px 8px;border-radius:4px;vertical-align:2px}
+  .next{padding:clamp(64px,8vw,110px) 0}
+  .next-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:center}
+  .contact-card{border:1.5px solid var(--hivis);border-radius:20px;padding:clamp(22px,3vw,34px);display:grid;gap:12px}
+  .contact-card a.line{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none}
+  .contact-card a.line span{font-family:var(--tech);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+  .contact-card a.line b{font-weight:700;overflow-wrap:anywhere;text-align:right}
+  .contact-card a.line:hover b{color:var(--hivis)}
+  .p-foot{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mute);font-size:13.5px}
+  .p-foot p{max-width:80ch}
+  @media (max-width:860px){
+    .ba-grid,.offer-grid,.next-grid{grid-template-columns:1fr}
+    .fix{grid-template-columns:44px 1fr}
+    .fix .now{grid-column:2}
+    .fix::before{font-size:22px}
+    .speed{grid-template-columns:1fr}
+    .p-from{display:none}
+  }
+  @media (max-width:520px){
+    .p-top .btn{min-height:40px;padding:0 12px;font-size:12.5px}
+    .p-top .brand-text small{display:none}
+    .p-top .brand img{width:40px}
+    .p-top .brand-text{font-size:14px}
+  }
+</style>
+</head>
+<body>
+<header class="p-top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Open the new Texas Tires site">
+      <img src="assets/img/logo-240.webp" width="56" height="51" alt="">
+      <span class="brand-text">Texas Tires<small>Website concept</small></span>
+    </a>
+    <p class="p-from">Prepared by <b>CALEBrated Virtual Services</b></p>
+    <a class="btn btn-hivis" href="index.html">Open the new site</a>
+  </div>
+</header>
+
+<main>
+<section class="p-hero">
+  <div class="wrap">
+    <p class="kicker">For the owner of Texas Tires 9 and Texas Tires 2</p>
+    <h1 class="display">A website that sells <span class="hl">as hard as your shop does.</span></h1>
+    <p class="lede">We rebuilt texastires9.com as a working concept, using your own logo, photos, services and financing details. Everything below compares it with the site you have today. Nothing is live, and nothing changes on your current site unless you want it to.</p>
+    <div class="cta-row">
+      <a class="btn btn-hivis btn-lg" href="index.html"><span>See the new site</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost btn-lg" href="index.html?lang=es">Ver en español</a>
+    </div>
+    <p class="offer-flag"><span class="offer-tag">The offer</span> We build and launch this site for you <b>free</b>. In return, you record a short video about your experience once it's live.</p>
+    <div class="p-meta"><span>Prepared <b>Sept 30, 2026</b></span><span>Built for <b>phones first</b></span><span>English <b>+</b> Español</span></div>
+  </div>
+</section>
+
+<section class="ba" aria-labelledby="ba-title">
+  <div class="wrap">
+    <h2 id="ba-title" class="sr-only">Before and after</h2>
+    <div class="ba-grid">
+      <figure class="ba-card before">
+        <span class="tag">Today</span>
+        <div class="ba-shots">
+          <img src="assets/img/pitch/before-desktop.webp" width="1200" height="750" alt="The current Texas Tires website on a computer" loading="lazy" decoding="async">
+          <img src="assets/img/pitch/before-mobile.webp" width="390" height="844" alt="The current Texas Tires website on a phone" loading="lazy" decoding="async">
+        </div>
+        <figcaption>On a phone, the first screen shows the logo, social icons and the address. There is no phone number or call button until you scroll.</figcaption>
+      </figure>
+      <figure class="ba-card after">
+        <span class="tag">New concept</span>
+        <div class="ba-shots">
+          <img src="assets/img/pitch/after-desktop.webp" width="1200" height="750" alt="The new Texas Tires website concept on a computer" loading="lazy" decoding="async">
+          <img src="assets/img/pitch/after-mobile.webp" width="390" height="844" alt="The new Texas Tires website concept on a phone" loading="lazy" decoding="async">
+        </div>
+        <figcaption>The first phone screen says what you sell, and Call, Directions and Quote stay pinned to the bottom of every screen.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="fixes" aria-labelledby="fix-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow"><span>01</span> <span>What we found, what we changed</span></p>
+      <h2 id="fix-title" class="h2">Nine things costing you calls right now.</h2>
+    </div>
+    <ol class="fix-list">
+      <li class="fix"><div class="was"><b>Today</b><h3>All 21 service links lead to an error</h3><p>Every service on your home page (Brake Repair, Oil Changes, A/C Repair and the rest) links to texastirescustoms.com. That address isn't connected to a website right now, so customers who click get a "site can't be reached" error. Your email on that domain still works.</p></div><div class="now"><b>New site</b><p>Every service is on the same site, grouped and described, so nobody lands on a dead page.</p></div></li>
+      <li class="fix"><div class="was"><b>Today</b><h3>No call button on the first phone screen</h3><p>Most people looking for tires are on their phone and want to call. Right now they have to scroll to find the number.</p></div><div class="now"><b>New site</b><p>A call button in the header, the hero and the footer, plus a Call / Directions / Quote bar pinned to the bottom on phones.</p></div></li>
+      <li class="fix"><div class="was"><b>Today</b><h3>The Auto Repair page shows a blank box</h3><p>texastires9.com/autorepair holds one embedded quote form from another company. When we opened it, the form didn't load and the page showed an empty gray box.</p></div><div class="now"><b>New site</b><p>All 27 services, grouped into Tires, Wheels and lifts, Auto repair and Maintenance, each with a plain one-line description.</p></div></li>
+      
+      <li class="fix"><div class="was"><b>Today</b><h3>Small details customers notice</h3><p>"Engine Diagnositcs" is misspelled in the services list, and Privacy Policy sits in the main menu between Contact and Financing.</p></div><div class="now"><b>New site</b><p>A short menu built around what customers want: services, tire finder, financing, our work, locations and a quote. Legal links live in the footer.</p></div></li>
+      <li class="fix"><div class="was"><b>Today</b><h3>Two different financing offers</h3><p>The home page says "100 day same as cash." The About section says "90 days same as cash."</p></div><div class="now"><b>New site</b><p>One clear financing section with your four providers and a three-step "how it works." We left the day count out until you confirm the right number.</p></div></li>
+      <li class="fix"><div class="was"><b>Today</b><h3>No way to look up a tire size</h3><p>Customers have to call just to ask if you carry their size.</p></div><div class="now"><b>New site</b><p>A tire size finder: type the size from the sidewall and it explains the numbers, then sends that size with the quote request.</p></div></li>
+      <li class="fix"><div class="was"><b>Today</b><h3>English only</h3><p>Many drivers in Haltom City and Fort Worth prefer Spanish.</p></div><div class="now"><b>New site</b><p>One tap switches the whole page to Spanish, including the tire finder and the quote form.</p></div></li>
+      <li class="fix"><div class="was"><b>Today</b><h3>Hours are hard to find</h3><p>Opening hours sit near the bottom of the page, inside the contact form area.</p></div><div class="now"><b>New site</b><p>A live "Open now" or "Closed" badge on Texas time at the top of the page, plus both shops with a large map and one-tap directions.</p></div></li>
+      <li class="fix"><div class="was"><b>Today</b><h3>A heavy page to load</h3><p>The current home page loads about 2.4 MB across 191 files on a computer.</p></div><div class="now"><b>New site</b><p>Hand-built and lightweight, so it opens fast even on a weak phone signal. See the numbers below.</p></div></li>
+    </ol>
+    <div class="speed" aria-label="Page weight comparison">
+      <div><p class="k">Page size</p><p class="v"><span class="old">2.4 MB</span><span class="new">166 KB</span></p><p class="note">First screen on a computer, measured in Chrome with the cache off.</p></div>
+      <div><p class="k">Files to load</p><p class="v"><span class="old">191</span><span class="new">11</span></p><p class="note">Fewer files means a faster first view.</p></div>
+      <div><p class="k">Languages</p><p class="v"><span class="old">1</span><span class="new">2</span></p><p class="note">English and Español.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="offer" aria-labelledby="offer-title">
+  <div class="wrap offer-grid">
+    <div>
+      <p class="eyebrow dark"><span>02</span> <span>The offer</span></p>
+      <h2 id="offer-title" class="h2">Your new website, free. We just ask for a short video.</h2>
+      <p class="body-lg">We finish the site, put it on texastires9.com and switch it on when you say go, at no cost to you. You keep your domain and your phone numbers. We swap in your real photos and confirm every price, promise and hour with you first.</p>
+      <p class="body-lg">Once it's live and working for you, you record a quick video telling other business owners what it was like to work with us. That's the whole deal.</p>
+    </div>
+    <div class="inc">
+      <h3>Free for Texas Tires</h3>
+      <ul>
+        <li>The finished site in English and Spanish<span>Your own shop photos and builds from Facebook and Instagram, with your OK.</span></li>
+        <li>Moved to texastires9.com<span>Hosting and security set up. Your current site stays up until the new one is ready.</span></li>
+        <li>Quote requests sent to your phone and email<span>Name, phone, vehicle, tire size and preferred shop in every message.</span></li>
+        <li>Your Google reviews, front and center<span>Texas Tires 9 has 539 Google reviews at 4.3 stars. The current site doesn't mention them. The new one does.</span></li>
+        <li>Local search basics<span>Page titles, business details for Google, and links to your Google, Yelp and Facebook pages.</span></li>
+        <li>30 days of fixes after launch<span>If anything looks or works wrong after launch, we fix it at no cost.</span></li>
+      </ul>
+      <h3>What we ask in return</h3>
+      <ol class="ask">
+        <li>A 60 to 90 second video<span>Recorded on your phone at the shop within 30 days after launch. We send three simple questions to answer.</span></li>
+        <li>Your honest words<span>No script. Say what you really think about the site and working with us.</span></li>
+        <li>Permission to share it<span>On our website and social media. When we post it, we say the site was built free in exchange for the video.</span></li>
+      </ol>
+      <h3>Optional, quoted separately</h3>
+      <ul class="addon">
+        <li>Monthly updates<span>New hours, offers or hiring posts, handled for you.</span></li>
+        <li>Missed-call text back<span>Anyone who calls while you're busy gets a text right away.</span></li>
+        <li>Review requests after each visit<span>A short text asking happy customers for a Google review.</span></li>
+        <li>Text reminders and follow-ups<span>Using the text consent your site already collects.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="next" aria-labelledby="next-title">
+  <div class="wrap next-grid">
+    <div>
+      <p class="eyebrow"><span>03</span> <span>Next step</span></p>
+      <h2 id="next-title" class="h2">A 15-minute call. We walk you through it on your phone.</h2>
+      <p class="body-lg" style="margin-top:16px">If you like it, we set a launch date and you record the video once the site is live. If you don't, no hard feelings, and we take the concept down.</p>
+      <div class="cta-row">
+        <a class="btn btn-hivis btn-lg" href="https://calendly.com/infocalebrated" target="_blank" rel="noopener"><span>Book a 15-minute call</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <p class="label">CALEBrated Virtual Services</p>
+      <a class="line" href="mailto:infocalebrated@gmail.com?subject=Texas%20Tires%20website"><span>Email</span><b>infocalebrated@gmail.com</b></a>
+      <a class="line" href="https://calebratedvirtualservices.com/" target="_blank" rel="noopener"><span>Website</span><b>calebratedvirtualservices.com</b></a>
+      <a class="line" href="https://calendly.com/infocalebrated" target="_blank" rel="noopener"><span>Book</span><b>calendly.com/infocalebrated</b></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="p-foot">
+  <div class="wrap">
+    <p>This concept uses Texas Tires' public logo, photos, services and contact details to show what a new site could look like. It is not the official Texas Tires website, it is hidden from search engines, and we will take it down on request. A few photos are stand-ins until we have yours.</p>
+  </div>
+</footer>
+</body>
+</html>
